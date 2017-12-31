@@ -1,4 +1,14 @@
-FROM composer
+FROM php:7-alpine
 LABEL maintainer "John Laswell <john.n.laswell@gmail.com>"
 
-RUN composer global require -vvv hirak/prestissimo
+
+ADD install.sh /tmp
+RUN /tmp/install.sh \
+    && rm /tmp/install.sh
+
+USER www-data
+RUN composer global require hirak/prestissimo
+
+WORKDIR /app
+
+ENTRYPOINT ["/usr/local/bin/composer"]
