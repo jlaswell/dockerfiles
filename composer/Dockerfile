@@ -1,5 +1,5 @@
 FROM php:7-alpine
-LABEL maintainer "John Laswell <john.n.laswell@gmail.com>"
+LABEL maintainer "John Laswell <john.n.laswell+github@gmail.com>"
 
 
 ADD install.sh /tmp
